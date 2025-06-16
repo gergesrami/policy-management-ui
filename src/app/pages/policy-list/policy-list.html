@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <h2>Policies</h2>
+
+  <button class="btn btn-primary mb-3" (click)="addNewPolicy()" [disabled]="loading">Add New Policy</button>
+
+  <div *ngIf="loading">Loading policies...</div>
+  <!-- <div *ngIf="errorMessage " class="alert alert-danger">{{ errorMessage }}</div> -->
+
+  <table *ngIf="!loading && policies.length > 0" class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Effective Date</th>
+        <th>Expiry Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <tr *ngFor="let policy of policies">
+        <td>{{ policy.name }}</td>
+        <td>{{ policy.effectiveDate | date }}</td>
+        <td>{{ policy.expiryDate | date }}</td>
+        <td>
+          <button class="btn btn-sm btn-secondary me-2" (click)="editPolicy(policy.id)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="deletePolicy(policy.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!loading && policies.length === 0" class="alert alert-info">
+    No policies found. Try adding one with the button above...
+  </div>
+</div>

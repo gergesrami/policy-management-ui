@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark px-3 mb-4">
+  <a class="navbar-brand" routerLink="/db-diagram">Policy Manager</a>
+
+  <div class="navbar-nav w-100 d-flex align-items-center">
+
+    <ng-container *ngIf="auth.isAuthenticated()">
+      <a *ngFor="let link of navLinks" class="nav-link" [routerLink]="link.path"
+        routerLinkActive="fw-semibold bg-secondary text-white rounded" [routerLinkActiveOptions]="{ exact: true }">
+        {{ link.label }}
+      </a>
+    </ng-container>
+
+    <div class="ms-auto d-flex align-items-center">
+      <a *ngIf="!auth.isAuthenticated()" class="nav-link" routerLink="/login"
+        routerLinkActive="fw-semibold bg-secondary text-white rounded" [routerLinkActiveOptions]="{ exact: true }">
+        Login
+      </a>
+
+      <a *ngIf="auth.isAuthenticated()" class="nav-link text-danger" href="#" (click)="auth.logout()">
+        Logout
+      </a>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,20 @@
+<div class="container mt-4">
+    <h2>{{ isEditMode ? 'Edit Policy Type' : 'Create Policy Type' }}</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="mb-3">
+            <label for="name" class="form-label">Policy Type Name</label>
+            <input id="name" type="text" class="form-control" formControlName="name">
+            <div class="text-danger" *ngIf="form.controls['name']?.touched && form.controls['name']?.invalid">
+                Name is required !
+            </div>
+        </div>
+
+        <div class="d-flex align-items-center mt-3">
+            <button type="submit" class="btn btn-success" [disabled]="form.invalid || isSubmitting">
+                {{ isEditMode ? 'Update Policy Type' : 'Create Policy Type' }}
+            </button>
+            <a routerLink="/policy-types" class="btn btn-secondary ms-2">Cancel Policy Type</a>
+        </div>
+    </form>
+</div>

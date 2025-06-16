@@ -1,0 +1,49 @@
+/* Body background and font */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar link active styling */
+.nav-link.active {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Add some spacing to buttons and form */
+button, .btn {
+  min-width: 120px;
+}
+
+/* Policy list table styling */
+.table thead {
+  background-color: #007bff;
+  color: white;
+}
+
+.table tbody tr:hover {
+  background-color: #e9ecef;
+  cursor: pointer;
+}
+
+/* Form styling */
+form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.1);
+}
+
+/* Input fields */
+input, select, textarea {
+  margin-bottom: 15px;
+}
+
+/* Validation errors */
+.is-invalid {
+  border-color: #dc3545;
+}
+
+.invalid-feedback {
+  display: block;
+}

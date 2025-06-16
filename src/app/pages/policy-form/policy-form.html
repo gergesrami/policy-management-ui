@@ -1,0 +1,57 @@
+<div class="container mt-4">
+  <h2>{{ isEditMode ? 'Edit Policy' : 'Create Policy' }}</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+    <div class="mb-3">
+      <label for="name" class="form-label">Policy Name*</label>
+      <input id="name" type="text" class="form-control" formControlName="name">
+      <div class="text-danger" *ngIf="form.controls['name']?.touched && form.controls['name']?.invalid">
+        Policy Name is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea id="description" class="form-control" formControlName="description" rows="3"
+        placeholder="Optional description or notes...">
+      </textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="effectiveDate" class="form-label">Effective Date*</label>
+      <input id="effectiveDate" type="date" class="form-control" formControlName="effectiveDate">
+      <div class="form-text">Date when the policy becomes active.</div>
+      <div class="text-danger"
+        *ngIf="form.controls['effectiveDate']?.touched && form.controls['effectiveDate']?.invalid">
+        Effective date is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="expiryDate" class="form-label">Expiry Date*</label>
+      <input id="expiryDate" type="date" class="form-control" formControlName="expiryDate">
+      <div class="form-text">When this policy should expire.*</div>
+      <div class="text-danger" *ngIf="form.controls['expiryDate']?.touched && form.controls['expiryDate']?.invalid">
+        Expiry date is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="policyTypeId" class="form-label">Policy Type*</label>
+      <select id="policyTypeId" class="form-select" formControlName="policyTypeId">
+        <option value="">Select a type...</option>
+        <option *ngFor="let type of policyTypes" [value]="type.id">{{ type.name }}</option>
+      </select>
+      <div class="text-danger" *ngIf="form.controls['policyTypeId']?.touched && form.controls['policyTypeId']?.invalid">
+        Please choose a policy type.
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center mt-4">
+      <button class="btn btn-success" type="submit" [disabled]="form.invalid || isSubmitting">
+        {{ isEditMode ? 'Update Policy' : 'Create Policy' }}
+      </button>
+      <a routerLink="/policies" class="btn btn-secondary ms-2">Cancel</a>
+    </div>
+  </form>
+</div>
