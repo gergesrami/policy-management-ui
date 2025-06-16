@@ -3,7 +3,7 @@
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
 
 
-This is the frontend project for the **Policy Management Application**, built using **Angular 17**. It is connected to a secure ASP.NET Core backend and enables users to manage **policies** and **policy types** via a user-friendly web interfac.
+This is the frontend project for the **Policy Management Application**, built using **Angular 17**. It is connected to a secure ASP.NET Core backend and enables users to manage **policies** and **policy types** via a user-friendly web interface.
 
 This project uses:
 - Latest Angular for the front-end. 
@@ -86,3 +86,22 @@ Configures the routes for the pages and components.
 - Responsive improvements for mobile screens.
 - Error boundary UI for network/server errors.
 - Language/locale selector.
+
+
+## How can i deploy this Application ?
+
+### First step :
+Build the Application
+```bash
+ng build --configuration=production
+```
+This will generate a dist/ folder containing the compiled files for deployment.
+
+
+### Second step :
+
+Chose your hosting platform, you can use any cloud hosting provider.
+
+### Third step:
+
+Upload the contents of dist/policy-management-ui/ to your hosting platform according to the provider instructions.
